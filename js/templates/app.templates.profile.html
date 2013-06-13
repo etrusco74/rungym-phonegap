@@ -1,0 +1,61 @@
+<!-- Profile -->
+<div class="container">
+
+    <div class="row-fluid">
+        <div class="span12">
+            <h1>RunGym</h1>
+            <h3 class="lead">Profilo Utente</h3>
+        </div>
+    </div>
+
+    <div class="row-fluid">
+        <div class="span12">
+            <form class="profileForm" id="profileForm" method="post">
+
+                <label>_id</label>
+                <input type='text' name='_id' id='_id' style='color: #CC3300;' readonly />
+
+                <label>Nome</label>
+                <input type='text' name='first_name' id='first_name' />
+
+                <label>Cognome</label>
+                <input type='text' name='last_name' id='last_name' />
+
+                <label>Username</label>
+                <input type='text' name='username' id='username' style='color: #CC3300;' readonly />
+
+                <label>Email</label>
+                <input type='text' name='email' id='email' />
+
+                <label>Data Registrazione</label>
+                <input type='text' name='registration_date' id='registration_date' style='color: #CC3300;' readonly />
+
+                <label>Data Login</label>
+                <input type='text' name='login_date' id='login_date' style='color: #CC3300;' readonly />
+
+                <label>Peso alla registrazione</label>
+                <input type="text" name='registration_weight' id='registration_weight' style='color: #CC3300;' readonly />
+
+                <label>Peso attuale</label>
+                <input type="text" name='story_weight' id='story_weight' placeholder="Peso attuale in Kg" />
+
+                <label>Ultimo aggiornamento peso</label>
+                <input type="text" name='story_date' id='story_date' style='color: #CC3300;' readonly />
+
+                <label>Data di nascita</label>
+                <input type='text' name='born_date' id='born_date' />
+
+                <label>Sesso</label>
+                <select name='gender' id='gender'>
+                    <option value='M' >Maschio</option>
+                    <option value='F' >Femmina</option>
+                </select>
+                <br/>
+                <button type="submit" id="profileButton" class="btn btn-success btn-large">aggiorna</button>
+                &nbsp;
+                <a href='#dashboard' class="btn btn-danger btn-large">dashboard</a>
+            </form>
+    	</div>
+    </div>
+
+</div>
