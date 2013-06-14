@@ -82,7 +82,7 @@ app = {
 
         /** app config **/
         const: {
-            debug : false,
+            debug : true,
             //env : 'development',
             env : 'production',
 

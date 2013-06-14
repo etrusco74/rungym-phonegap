@@ -11,7 +11,6 @@ app.views.send = Backbone.View.extend({
     /** init view **/
     initialize: function() {
         console.log('initializing send view');
-        this.load();
     },
 
     /** click event for start training **/
@@ -25,17 +24,13 @@ app.views.send = Backbone.View.extend({
         app.routers.router.prototype.dashboard();
     },
 
-    /** reload activity and user data if he has not performed logout **/
-    load: function() {
-        //app.global.userModel = app.models.user.first();
-        //app.global.trainingModel = app.models.training.last();
-    },
-
     /** render template **/
     render: function() {
         $(this.el).html(this.template());
-        this.$("#btnSend").html('trasferisci ('+app.global.trainingsCollection.length+')');
-        this.$("#btnDelete").html('elimina ('+app.global.trainingsCollection.length+')');
+        this.$("#numTraining").html('Attenzione, ci sono ' + app.global.trainingsCollection.length + ' allenamenti da trasferire' );
+        this.$("#btnSend").html('trasferisci all. del ' + app.global.trainingsCollection.first().get("start_date") );
+        this.$("#btnDelete").html('elimina all. del ' + app.global.trainingsCollection.first().get("start_date") );
+        //this.send_modelToForm();
         return this;
     },
 
@@ -72,11 +67,20 @@ app.views.send = Backbone.View.extend({
         });
     },
 
+
+    /** render trainings model data to select **/
+    send_modelToForm: function() {
+        var _model =  app.global.trainingsCollection.models;
+        $('#trainingList li').remove();
+        for( var i=0 in _model ) {
+            this.$('#trainingList')
+                .append('<li  class=\"trainingList\">Allenamento del ' + _model[i].get("start_date") + ' <a href="#send" data-identity="' + _model[i].get("id") + '">trasferisci</a><a href="#send" data-identity="' + _model[i].get("id") + '">cancella</a></li>');
+        }
+    },
+
     send_delete: function() {
-        //app.global.trainingsCollection.remove( app.global.trainingsCollection.first() );
         var _model = app.global.trainingsCollection.first();
         _model.destroy();
-
         app.routers.router.prototype.send();
     },
 

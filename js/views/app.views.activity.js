@@ -42,11 +42,10 @@ app.views.activity = Backbone.View.extend({
     /** render activities model data to select **/
     activity_modelToForm: function() {
         var _model =  app.global.activitiesCollection.models;
+        $('#activityList li').remove();
         for( var i=0 in _model ) {
-            this.$('#activity')
-                .append($("<option></option>")
-                    .attr("value",_model[i].get("_id"))
-                    .text(_model[i].get("description")));
+            this.$('#activityList')
+                .append('<li  class=\"activityList\"><a href="#training/' + _model[i].get("_id") + '" data-identity="' + _model[i].get("_id") + '">' + _model[i].get("description") + '</a></li>');
         }
     },
 

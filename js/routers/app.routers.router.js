@@ -53,7 +53,6 @@ app.routers.router = Backbone.Router.extend({
         }
     },
     logout: function() {
-
         //app.global.trainingsCollection.each(function(model) { model.destroy(); } );
         app.global.activitiesCollection.each(function(model) { model.destroy(); } );
         app.global.usersCollection.each(function(model) { model.destroy(); } );
@@ -84,15 +83,6 @@ app.routers.router = Backbone.Router.extend({
         this.navigate('#profile', { trigger : false });
     },
     dashboard: function() {
-        /*
-        if (!app.global.dashboardView) {
-            app.global.dashboardView = new app.views.dashboard();
-            app.global.dashboardView.render();
-        } else {
-            console.log('reusing dashboard view');
-            app.global.dashboardView.delegateEvents(); // delegate events when the view is recycled
-        }
-        */
         app.global.dashboardView = new app.views.dashboard();
         app.global.dashboardView.render();
         $('#content').html(app.global.dashboardView.el);
@@ -123,15 +113,6 @@ app.routers.router = Backbone.Router.extend({
         this.navigate('#training/'+activity, { trigger : false });
     },
     send: function() {
-        /*
-        if (!app.global.sendView) {
-            app.global.sendView = new app.views.send();
-            app.global.sendView.render();
-        } else {
-            console.log('reusing send view');
-            app.global.sendView.delegateEvents(); // delegate events when the view is recycled
-        }
-        */
         if ( app.global.trainingsCollection.size() > 0) {
             app.global.sendView = new app.views.send();
             app.global.sendView.render();
