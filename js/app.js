@@ -83,12 +83,12 @@ app = {
         /** app config **/
         const: {
             debug : false,
-            //env : 'development',
-            env : 'production',
+            env : 'development',
+            //env : 'production',
 
             apiurl : function() {
                 var url;
-                return (this.env == 'development') ? url = 'http://rungym.etrusco.c9.io/api/' : url = 'http://www.rungym.com/api/';
+                return (this.env == 'development') ? url = 'http://rungym-c9-etrusco.c9.io/api/' : url = 'http://www.rungym.com/api/';
             },
 
             testJsonUrl_OLD : function() {
